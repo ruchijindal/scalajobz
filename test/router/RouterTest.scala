@@ -105,27 +105,6 @@ class RouterTest extends Specification with BeforeAfter{
     contentType(result) must beSome("text/html")
     charset(result) must beSome("utf-8")
   }
-  
-//  "redirect to User Profile Action " in {
-//    val Some(result) = routeAndCall(FakeRequest(GET, "/editUserProfile"))
-//    status(result) must equalTo(OK)
-//    contentType(result) must beSome("text/html")
-//    charset(result) must beSome("utf-8")
-//  }
-// 
-//  "find Job Post By UserId Action " in {
-//    val Some(result) = routeAndCall(FakeRequest(GET, "/findJobPostByUserId"))
-//    status(result) must equalTo(OK)
-//    contentType(result) must beSome("text/html")
-//    charset(result) must beSome("utf-8")
-//  }
-//  
-//  "update User Profile Action " in {
-//    val Some(result) = routeAndCall(FakeRequest(POST, "/updateUserProfile"))
-//    status(result) must equalTo(OK)
-//    contentType(result) must beSome("text/html")
-//    charset(result) must beSome("utf-8")
-//  }
  
  override def after{
    JobDAO.remove(MongoDBObject("location" -> ".*".r))

@@ -1,0 +1,49 @@
+@(alert: Alert,loginForm: Form[LogInForm],userId:String,flag:String)
+@import helper._ 
+@main("Welcome to Scalajobz.com",userId,alert) {
+
+<div id="homewhite">
+	<div class="page">
+			<div class="border-center">
+				<div class="box">
+					<div class="bordered">
+						<p class="text-info">Please login into <b>scalajobz.com </b>to post a job.
+						 If you don't have a login, it's easy to  <a class="menulink" href="/signup/@flag">register</a>. </p>
+					</div>
+
+
+				</div>
+
+				<div class="box">
+					<div class="bordered">
+						<h2>Login Here</h2>
+						<form id="login-form" action="/login/@flag" method="post">
+							<div class="control-group">
+								<label class="control-label" for="EmailId">Email</label>
+								<div class="controls">
+									<input id="EmailId" name="EmailId" type="text" placeholder="Email address" class="input-large"/>
+								</div>
+							</div>
+							<div class="control-group">
+								<label class="control-label" for="Password">Password</label>
+								<div class="controls">
+									<input id="Password" name="Password" type="password" placeholder="Password" class="input-large"/>
+								</div>
+							</div>
+
+							<div class="control-group">
+								<div class="controls">
+									<input type="submit" value="LogIn" class="btn btn-primary"/>
+								</div>
+							</div>
+						<div class="separator-line"></div>
+						<a href="/forgetPassword"><h2>Forget Password?</h2> 	</a>
+						</form>
+					</div>
+				</div>
+			</div>
+	</div>
+</div>
+
+
+} 

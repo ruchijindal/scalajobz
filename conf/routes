@@ -1,0 +1,63 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET     /                           controllers.Application.index
+
+
+GET    /signup/:flag                 controllers.Application.signUpOnScalaJobz(flag:String)
+POST    /signup/:flag                      controllers.Application.newUser(flag:String)
+
+GET    /login                         controllers.Application.loginOnScalaJobz
+POST    /login/:flag                  controllers.Application.logIn(flag:String)
+
+GET    /postAJob                      controllers.JobController.postAJob
+POST    /postAJob                     controllers.JobController.newJob
+
+GET    /findAllJobs                   controllers.Application.index
+
+GET    /logout                        controllers.Application.logOutFromScalaJobz
+
+POST   /findAJob/:searchString/:editFlag   controllers.JobController.findAJob(searchString: String , editFlag: String)
+
+GET   /jobDetail/:jobId				controllers.JobController.findJobDetail(jobId:String)
+
+#Edit By UserId
+
+GET    /editUserProfile                 controllers.UserController.editUserProfile
+
+GET   /findJobPostByUserId				controllers.UserController.findJobPostByUserId
+
+POST /updateUserProfile					controllers.UserController.updateUserProfile
+
+GET /findJobPostForEdit/:jobId			controllers.JobController.findJobPostForEdit(jobId: String)
+
+POST /editJob/:jobId				     controllers.JobController.editJob(jobId: String)
+
+GET /deleteJob/:jobId/:editFlag			 controllers.JobController.deleteJob(jobId: String , editFlag: String)
+
+#Inform Me								
+
+POST /registerJobSeeker/:emailId/:skillsToken			controllers.UserController.registerJobSeeker(emailId: String, skillsToken: String)
+
+GET  /unSubscribeJobSeeker/:userId		            controllers.UserController.unSubscribeJobSeeker(userId:String)			
+
+#Forget Password
+
+GET /forgetPassword 					controllers.UserController.forgetPassword
+
+POST /sendForgetPassword/:emailId 					controllers.UserController.sendForgetPassword(emailId:String)
+
+# Javascript routing
+#GET     /assets/javascripts/routes          controllers.JobController.javascriptRoutes
+
+
+#REST API
+
+GET     /restApi							        controllers.RESTServiceController.restApi
+GET 	/getAllJobs									controllers.RESTServiceController.processGetAllJobsList		
+GET		/getJobsForACriteria/:code 	controllers.RESTServiceController.processGetJobListForSingleRequest(code: String)
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.at(path="/public", file)

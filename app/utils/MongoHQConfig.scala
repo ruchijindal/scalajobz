@@ -7,7 +7,7 @@ object MongoHQConfig {
   def mongoDB = {
     Play.maybeApplication match {
       case None => // this would set up the database for testing, since app is not running right now
-        MongoConnection("", 27017)("test")
+        MongoConnection("", 27017)("scalajobz-test")
       case Some(application) => //  this would set up the database for development mode
         MongoConnection("", 27017)("scalajobz")
     }

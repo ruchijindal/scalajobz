@@ -36,7 +36,7 @@ object Common {
    * @param jobSeeker is the jobseeker with same the skills required for job 
    */
 
-  def setContentForJobAlert(jobs: List[JobEntity], jobSeeker: UserEntity): String = {
+   def setContentForJobAlert(jobs: List[JobEntity], jobSeeker: UserEntity): String = {
 
     val removeJobAlertLink = "http://" + getContextUrl + "/unSubscribeJobSeeker/" + jobSeeker.id
     var message = "<b>Job Alert from scalajobz.com</b>" +
@@ -44,12 +44,18 @@ object Common {
     for (job <- jobs) {
       val redirectToJobLink = "http://" + getContextUrl + "/jobDetail/" + job.id
       message += "<b><u><a href= " + redirectToJobLink + ">" + job.position + "</a></u></b>" + break
-      message += job.company + break
-      message += job.location + break
+      message += job.company + " - " + job.location + break
+      if (job.description.length > 150) {
+        message += job.description.substring(0, 150) + " ..." + break
+      } else {
+        message += job.description + break
+      }
+
     }
     message += "<br/>Click  <u>" + removeJobAlertLink + "</u> to unsubscribe from ScalaJobz"
     message
   }
+
 
   /**
    * To get The root context from application.config

@@ -12,9 +12,8 @@ import models.Job
  */
 
 class JobAlertActor extends Actor {
-  def receive : PartialFunction[Any,Unit] = {
+  def receive: PartialFunction[Any, Unit] = {
     case jobAlertMail: JobAlertMail =>
-      Thread.sleep(10000)
       sendJobAlert
       context.system.scheduler.scheduleOnce(24 hours, self, JobAlertMail())
   }
@@ -32,4 +31,14 @@ class JobAlertActor extends Actor {
       }
     }
   }
+}
+
+class JobAlertActorInitiator extends Actor {
+  def receive: PartialFunction[Any, Unit] = {
+    case initiateJobAlertMail: InitiateJobAlertMail =>
+      val system = ActorSystem("jobActors")
+      val jobActor = system.actorOf(Props[JobAlertActor])
+      context.system.scheduler.scheduleOnce(5 minutes, jobActor, JobAlertMail())
+  }
+
 }

@@ -33,11 +33,14 @@ class JobAlertActor extends Actor {
   }
 }
 
+/**
+ * Initiate Job Alert Actor after 5 minutes of Application Started 
+ */
+
 class JobAlertActorInitiator extends Actor {
   def receive: PartialFunction[Any, Unit] = {
     case initiateJobAlertMail: InitiateJobAlertMail =>
-      val system = ActorSystem("jobActors")
-      val jobActor = system.actorOf(Props[JobAlertActor])
+      val jobActor = context.actorOf(Props[JobAlertActor])
       context.system.scheduler.scheduleOnce(5 minutes, jobActor, JobAlertMail())
   }
 

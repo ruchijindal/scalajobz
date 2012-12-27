@@ -190,6 +190,36 @@ $(document).ready(
 									'.control-group').addClass('success');
 						}
 					});
+			
+			$('#contactus-form').validate(
+					{
+						rules : {
+							Name : {
+								minlength : 2,
+								required : true
+							},
+							EmailAddress : {
+								required : true,
+								email : true
+							},
+							Subject : {
+								minlength : 2,
+								required : true
+							},
+							Message : {
+								minlength : 2,
+								required : true
+							},
+						},
+						highlight : function(label) {
+							$(label).closest('.control-group')
+									.addClass('error');
+						},
+						success : function(label) {
+							label.text('OK!').addClass('valid').closest(
+									'.control-group').addClass('success');
+						}
+					});
 
 
 		}); // end document.ready

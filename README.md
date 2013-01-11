@@ -76,7 +76,7 @@ Scalajobz uses a lot of inherent Play 2.0 functionality to drive the job flow. A
 ------------------------------------------------
 ###Snapshot
 ------------------------------------------------
-[![Build Status](https://travis-ci.org/ruchijindal/scalajobz.png?branch=master)](https://travis-ci.org/ruchijindal/scalajobz) for Travis CI passing
+[![Build Status](https://travis-ci.org/ruchijindal/scalajobz.png?branch=master)](https://travis-ci.org/ruchijindal/scalajobz)
 
 
 ------------------------------------

@@ -9,6 +9,7 @@ jdk:
 
 services:
   - mongodb
+  - memcache
 
 env:
   - PLAY_VERSION=2.0.2

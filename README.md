@@ -78,6 +78,7 @@ Scalajobz Aggregate from various Job Portals like Indeed, Simply Hired ,Career B
 
 Scalajobz uses a lot of inherent Play 2.0 functionality to drive the job flow. Actors are used to send out daily alerts when matching jobs are found for all enrolled job seekers.
 
+
 ------------------------------------
 ###High-level design and architecture :-
 ------------------------------------

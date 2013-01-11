@@ -16,7 +16,7 @@ before_script:
   - wget http://download.playframework.org/releases/play-${PLAY_VERSION}.zip
   - unzip -q play-${PLAY_VERSION}.zip
 script:
-  - cd samples/elasticsearch-java
-  - ../../play-${PLAY_VERSION}/play test
+  - sbt test
+ 
 notifications: 
   email: false

@@ -4,8 +4,7 @@ scala:
   - 2.9.1
 
 jdk:
-  - openjdk6
-  - openjdk7
+    - openjdk7
 
 services:
   - mongodb
